@@ -92,7 +92,7 @@ export default function ResponsiveDrawer(props: Props) {
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
       >
-        <label>بگو ای مرد من ای مرد عاشق</label>
+        <label>ما نهایتا همینیم از این بهتر هم معمولا نمیشیم</label>
         <label>
           Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
           ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
