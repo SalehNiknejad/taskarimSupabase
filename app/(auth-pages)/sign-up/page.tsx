@@ -18,17 +18,17 @@ export default function Signup({ searchParams }: { searchParams: Message }) {
   return (
     <>
       <form className="flex flex-col min-w-64 max-w-64 mx-auto">
-        <h1 className="text-2xl font-medium">Sign up</h1>
+        <h1 className="text-2xl font-medium">ساخت حساب</h1>
         <p className="text-sm text text-foreground">
-          Already have an account?{" "}
+          آیا حساب کاربری دارید؟{" "}
           <Link className="text-primary font-medium underline" href="/sign-in">
-            Sign in
+            ورود به حساب
           </Link>
         </p>
         <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">ایمیل</Label>
           <Input name="email" placeholder="you@example.com" required />
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">رمز ورود</Label>
           <Input
             type="password"
             name="password"
@@ -36,13 +36,18 @@ export default function Signup({ searchParams }: { searchParams: Message }) {
             minLength={6}
             required
           />
-          <SubmitButton formAction={signUpAction} pendingText="Signing up...">
-            Sign up
+          <SubmitButton
+            formAction={signUpAction}
+            pendingText="در حال ساخت حساب برای شما..."
+          >
+            ساخت حساب
           </SubmitButton>
-          <FormMessage message={searchParams} />
+          <div dir="ltr">
+            <FormMessage message={searchParams} />
+          </div>
         </div>
       </form>
-      <SmtpMessage />
+      {/* <SmtpMessage /> */}
     </>
   );
 }
