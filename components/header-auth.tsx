@@ -61,7 +61,7 @@ export default async function AuthButton() {
     <>
       <div className="flex items-center gap-4">
         <Link href={"/displaynameset"}>
-          {displayname.displayName ?? user?.email}
+          {displayname?.displayName ?? user?.email}
         </Link>
 
         <form action={signOutAction}>
