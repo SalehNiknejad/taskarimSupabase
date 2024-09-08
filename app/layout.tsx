@@ -54,7 +54,7 @@ export default function RootLayout({
                       <Image
                         alt="taskarim"
                         src={LogoType}
-                        className="dark:brightness-150"
+                        className="dark:brightness-150 brightness-75"
                         width={36}
                       />
                       تسکریم

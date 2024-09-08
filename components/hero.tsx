@@ -7,7 +7,12 @@ export default function Header() {
   return (
     <div className="flex flex-col gap-7 items-center">
       <div className="flex justify-center items-center">
-        <Image alt="taskarim" src={LogoType} width={280} height={98} />
+        <Image
+          alt="taskarim"
+          src={LogoType}
+          width={280}
+          className="dark:brightness-150 brightness-75"
+        />
       </div>
       <div className="flex gap-8 justify-center items-center">
         <a
