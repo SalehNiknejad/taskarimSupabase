@@ -10,16 +10,12 @@ export default function Header() {
         <Image
           alt="taskarim"
           src={LogoType}
-          width={280}
+          width={240}
           className="dark:brightness-150 brightness-75"
         />
       </div>
       <div className="flex gap-8 justify-center items-center">
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://supabase.com/" target="_blank" rel="noreferrer">
           <SupabaseLogo />
         </a>
         <span className="border-l rotate-45 h-6" />
@@ -27,18 +23,17 @@ export default function Header() {
           <NextLogo />
         </a>
       </div>
-      <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
       <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center">
-        The fastest way to build apps with{" "}
+        ابزار مدیریت امور و کار ها ساخته شده با{" "}
         <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
+          href="https://supabase.com/"
           target="_blank"
           className="font-bold hover:underline"
           rel="noreferrer"
         >
           Supabase
         </a>{" "}
-        and{" "}
+        و{" "}
         <a
           href="https://nextjs.org/"
           target="_blank"
