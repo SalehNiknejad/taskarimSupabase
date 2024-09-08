@@ -4,6 +4,7 @@ import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
+import SignoutIcon from "./Base/Icons/SignoutIcon";
 
 export default async function AuthButton() {
   const {
@@ -64,8 +65,21 @@ export default async function AuthButton() {
         </Link>
 
         <form action={signOutAction}>
-          <Button type="submit" variant={"outline"}>
+          <Button
+            type="submit"
+            variant={"outline"}
+            className="max-sm:hidden flex items-center gap-1"
+          >
             خروج از حساب
+            <SignoutIcon />
+          </Button>{" "}
+          <Button
+            type="submit"
+            variant={"outline"}
+            size={"icon"}
+            className="sm:hidden"
+          >
+            <SignoutIcon />{" "}
           </Button>
         </form>
       </div>
