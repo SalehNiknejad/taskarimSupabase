@@ -19,8 +19,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase",
+  title: "تسکریم | ابزار مدیریت امور",
+  description: "بهترین ابزار تسک منیجر",
 };
 
 export default function RootLayout({
@@ -57,7 +57,7 @@ export default function RootLayout({
                         className="dark:brightness-150 brightness-75"
                         width={36}
                       />
-                      تسکریم
+                      <span className="max-sm:hidden">تسکریم</span>
                     </Link>
                     <div className="mr-3">
                       <ThemeSwitcher />
