@@ -10,11 +10,16 @@ export default async function AuthButton() {
     data: { user },
   } = await createClient().auth.getUser();
   const supabase = createClient();
+  type displayReq = {
+    id: number;
+    email: string;
+    displayName: string;
+  };
   const { data } = await supabase
     .from("userNames")
     .select("*")
     .eq("email", user?.email);
-  const displayname = JSON.stringify(data?.findLast((a) => a));
+  const displayname: displayReq = data?.findLast((a) => a);
   if (!hasEnvVars) {
     return (
       <>
@@ -53,10 +58,10 @@ export default async function AuthButton() {
   }
   return user ? (
     <>
-      {displayname.id}
-      {/* TODO FIX */}
       <div className="flex items-center gap-4">
-        <Link href={"/displaynameset"}>{displayname ?? user?.email}</Link>
+        <Link href={"/displaynameset"}>
+          {displayname.displayName ?? user?.email}
+        </Link>
 
         <form action={signOutAction}>
           <Button type="submit" variant={"outline"}>
