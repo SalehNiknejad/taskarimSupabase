@@ -1,15 +1,15 @@
 import DeployButton from "@/components/deploy-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
+import Link from "next/link";
+import Image from "next/image";
 import HeaderAuth from "@/components/header-auth";
+import LogoType from "@/public/TaskarimLogo.png";
+import { EnvVarWarning } from "@/components/env-var-warning";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import { Vazirmatn } from "next/font/google";
-import LogoType from "@/public/TaskarimLogo.png";
-
+import { ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
-import Link from "next/link";
 import "./globals.css";
-import Image from "next/image";
 
 const vazir = Vazirmatn({ subsets: ["arabic", "latin", "latin-ext"] });
 
@@ -23,11 +23,7 @@ export const metadata = {
   description: "بهترین ابزار تسک منیجر",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
