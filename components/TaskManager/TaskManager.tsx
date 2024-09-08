@@ -20,7 +20,6 @@ async function TaskManager() {
     .from("AllTasks")
     .select("*")
     .eq("authorID", user?.id);
-  console.log(data);
   // const displayname: displayReq = data?.findLast((a) => a);
   return (
     <>
