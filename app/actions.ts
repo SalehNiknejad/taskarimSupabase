@@ -160,33 +160,34 @@ export const changeDisplayName = async (formData: FormData) => {
   encodedRedirect("success", "/protected/reset-password", "Password updated");
 };
 
-export const add_task = async (formData: FormData) => {
+export const addTasks = async (formData: FormData) => {
   const supabase = createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
   const title = formData.get("title") as string;
+  const description = formData.get("description") as string;
+  const date = formData.get("date") as string;
 
   const { data, error } = await supabase
-    .from("userNames")
+    .from("allTask")
     .insert({
-      displayName: title,
-      email: user?.email,
+      date,
+      authorID: user?.id,
+      title,
+      description,
+      isCompleted: false,
     })
     .select()
     .single();
 
-  if (error) {
-    encodedRedirect(
-      "error",
-      "/displaynameset",
-      "تغییر نام کاربری با مشکل روبه‌رو شد"
-    );
-  }
   if (data) {
     encodedRedirect("success", "/", "نام کاربری تغییر یافت");
   }
-
-  encodedRedirect("success", "/protected/reset-password", "Password updated");
+  console.log(error, data);
+  // if (error) {
+  //   encodedRedirect("error", "/add-task", "Add-Task_Failed");
+  //   console.log(title, description, date);
+  // }
 };
