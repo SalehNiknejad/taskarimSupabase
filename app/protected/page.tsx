@@ -1,5 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/server";
-import { GemIcon, InfoIcon } from "lucide-react";
+import { GemIcon, UserPen, ZapIcon } from "lucide-react";
 import { redirect } from "next/navigation";
 
 export default async function ProtectedPage() {
@@ -28,13 +29,29 @@ export default async function ProtectedPage() {
         <GemIcon size="16" strokeWidth={2} />
         خوش آمدید به ابزار مدیریت تسک ها و امور تسکریم{" "}
       </div>
-      <h2 className="font-bold text-2xl mb-4">اطلاعات کاربری شما</h2>
+      <h2 className="font-bold text-2xl my-2">اطلاعات کاربری شما</h2>
       {displayname.displayName && (
         <h4 className="font-bold text-base ">
           نام نمایشی: {displayname.displayName}
         </h4>
       )}
+      {!displayname.displayName && (
+        <a href="/displaynameset">
+          <Button
+            className="font-light text-sm"
+            variant={"secondary"}
+            size={"sm"}
+          >
+            <UserPen className="me-2" /> وارد کردن نام نمایشی
+          </Button>
+        </a>
+      )}
       <h4 className="font-bold text-base ">ایمیل: {user.email}</h4>
+      <a href="/">
+        <Button className="font-black text-base">
+          <ZapIcon className="me-2" /> رفتن به تسک منیجر
+        </Button>
+      </a>
     </div>
   );
 }
