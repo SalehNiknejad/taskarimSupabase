@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { add_task } from "../actions";
+import { addTasks } from "../actions";
 import { Text_Area } from "@/components/ui/text-area";
 import { ListPlus } from "lucide-react";
 import { DatePicker } from "zaman";
@@ -22,27 +22,24 @@ const AddTask = () => {
         <Input name="title" placeholder="عنوان تسک را وارد کنید" required />
         <Label htmlFor="description">توضیحات</Label>
         <Text_Area name="description" placeholder="درباره تسک توضیحی دهید" />
-        <Label htmlFor="description" className="mt-2">
-          تاریخ
-        </Label>
+        <Label className="mt-2">تاریخ</Label>
         <DatePicker
-          onChange={(e) =>
+          onChange={(e) => {
             setDate(
               new Intl.DateTimeFormat("fa-IR", {
-                // weekday: "long",
                 year: "numeric",
                 month: "short",
                 day: "numeric",
               }).format(e.value)
-            )
-          }
+            );
+          }}
           customShowDateFormat="DD MMMM YYYY"
           round="x2"
           weekends={[6]}
           inputClass="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
         />
         <Input name="date" className="hidden" defaultValue={date} />
-        <SubmitButton pendingText="در حال افزودن..." formAction={add_task}>
+        <SubmitButton pendingText="در حال افزودن..." formAction={addTasks}>
           افزودن
         </SubmitButton>
       </div>
