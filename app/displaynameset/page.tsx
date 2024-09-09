@@ -10,9 +10,6 @@ function displaynameset() {
       <h1 className="text-2xl font-medium">تغییر نام کاربری</h1>
       <p className="text-sm text-foreground mt-3">
         نام کاربری که میخواهید در سایت نمایش داده شود را وارد کنید.
-        {/* <Link className="text-foreground font-medium underline" href="/sign-up">
-          ساختن حساب
-        </Link> */}
       </p>
       <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
         <Label htmlFor="userName">نام</Label>
