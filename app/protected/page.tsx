@@ -1,10 +1,14 @@
 import { createClient } from "@/utils/supabase/server";
-import { InfoIcon } from "lucide-react";
+import { GemIcon, InfoIcon } from "lucide-react";
 import { redirect } from "next/navigation";
 
 export default async function ProtectedPage() {
   const supabase = createClient();
-
+  type displayReq = {
+    id: number;
+    email: string;
+    displayName: string;
+  };
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -12,20 +16,25 @@ export default async function ProtectedPage() {
   if (!user) {
     return redirect("/sign-in");
   }
+  const { data } = await supabase
+    .from("userNames")
+    .select("*")
+    .eq("email", user?.email);
+  const displayname: displayReq = data?.findLast((a) => a);
 
   return (
     <div className="  flex flex-col gap-6">
       <div className="bg-accent text-sm p-3 px-5 rounded-md text-foreground flex gap-3 items-center">
-        <InfoIcon size="16" strokeWidth={2} />
-        این صفحه برای محافظت از اطلاعات سایت در برابر نفوذ ها است
+        <GemIcon size="16" strokeWidth={2} />
+        خوش آمدید به ابزار مدیریت تسک ها و امور تسکریم{" "}
       </div>
       <h2 className="font-bold text-2xl mb-4">اطلاعات کاربری شما</h2>
-      <pre
-        className="text-xs font-mono p-3 rounded border max-h-80 overflow-auto"
-        dir="ltr"
-      >
-        {JSON.stringify(user, null, 2)}
-      </pre>
+      {displayname.displayName && (
+        <h4 className="font-bold text-base ">
+          نام نمایشی: {displayname.displayName}
+        </h4>
+      )}
+      <h4 className="font-bold text-base ">ایمیل: {user.email}</h4>
     </div>
   );
 }
