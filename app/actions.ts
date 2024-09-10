@@ -185,9 +185,4 @@ export const addTasks = async (formData: FormData) => {
   if (data) {
     encodedRedirect("success", "/", "نام کاربری تغییر یافت");
   }
-  console.log(error, data);
-  // if (error) {
-  //   encodedRedirect("error", "/add-task", "Add-Task_Failed");
-  //   console.log(title, description, date);
-  // }
 };
