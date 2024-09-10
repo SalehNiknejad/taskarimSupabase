@@ -65,7 +65,7 @@ async function TaskManager() {
                   />
                   <Button
                     children={<Trash2Icon size={24} />}
-                    variant={"secondary"}
+                    variant={"destructive"}
                     type="button"
                     size={"icon"}
                   />
