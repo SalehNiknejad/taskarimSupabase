@@ -199,3 +199,19 @@ export const deleteTask = async (taskId: number) => {
     encodedRedirect("error", "/", "TaskDeletingFailed");
   } else encodedRedirect("success", "/", "TaskDeleted");
 };
+
+export const checkStateChangeTask = async (
+  taskId: number,
+  isCompleted: boolean
+) => {
+  const supabase = createClient();
+
+  const { error } = await supabase
+    .from("allTask")
+    .update({ isCompleted: !isCompleted })
+    .eq("id", taskId);
+
+  if (error) {
+    encodedRedirect("error", "/", "TaskChangeStateSuccessful");
+  } else encodedRedirect("success", "/", "TaskChangeStateFailed");
+};
