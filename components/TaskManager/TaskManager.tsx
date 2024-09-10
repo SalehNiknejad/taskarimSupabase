@@ -1,8 +1,9 @@
 import React from "react";
+import DeleteAndEditButtons from "./DeleteAndEditButtons";
 import { createClient } from "@/utils/supabase/server";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
-import { Edit, EditIcon, PlusCircleIcon, Trash2Icon } from "lucide-react";
+import { PlusCircleIcon } from "lucide-react";
 
 async function TaskManager() {
   const {
@@ -56,19 +57,7 @@ async function TaskManager() {
                   </Label>
                 </div>
                 <div>
-                  <Button
-                    children={<EditIcon size={24} />}
-                    variant={"secondary"}
-                    type="button"
-                    size={"icon"}
-                    className="me-3"
-                  />
-                  <Button
-                    children={<Trash2Icon size={24} />}
-                    variant={"destructive"}
-                    type="button"
-                    size={"icon"}
-                  />
+                  <DeleteAndEditButtons taskId={item.id} />
                 </div>
               </div>
             </div>
