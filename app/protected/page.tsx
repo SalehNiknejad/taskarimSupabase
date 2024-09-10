@@ -30,12 +30,12 @@ export default async function ProtectedPage() {
         خوش آمدید به ابزار مدیریت تسک ها و امور تسکریم{" "}
       </div>
       <h2 className="font-bold text-2xl my-2">اطلاعات کاربری شما</h2>
-      {displayname.displayName && (
+      {displayname?.displayName && (
         <h4 className="font-bold text-base ">
-          نام نمایشی: {displayname.displayName}
+          نام نمایشی: {displayname?.displayName}
         </h4>
       )}
-      {!displayname.displayName && (
+      {!displayname?.displayName && (
         <a href="/displaynameset">
           <Button
             className="font-light text-sm"
@@ -46,7 +46,7 @@ export default async function ProtectedPage() {
           </Button>
         </a>
       )}
-      <h4 className="font-bold text-base ">ایمیل: {user.email}</h4>
+      <h4 className="font-bold text-base ">ایمیل: {user?.email}</h4>
       <a href="/">
         <Button className="font-black text-base">
           <ZapIcon className="me-2" /> رفتن به تسک منیجر
