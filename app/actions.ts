@@ -183,6 +183,19 @@ export const addTasks = async (formData: FormData) => {
     .single();
 
   if (data) {
-    encodedRedirect("success", "/", "نام کاربری تغییر یافت");
+    encodedRedirect("success", "/", "TaskAdded");
   }
+  if (error) {
+    encodedRedirect("error", "/", "AddTaskFailed");
+  }
+};
+
+export const deleteTask = async (taskId: number) => {
+  const supabase = createClient();
+
+  const { error } = await supabase.from("allTask").delete().eq("id", taskId);
+
+  if (error) {
+    encodedRedirect("error", "/", "TaskDeletingFailed");
+  } else encodedRedirect("success", "/", "TaskDeleted");
 };
