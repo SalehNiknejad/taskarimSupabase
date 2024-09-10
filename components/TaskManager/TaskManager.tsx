@@ -61,7 +61,8 @@ async function TaskManager() {
                     variant={"secondary"}
                     type="button"
                     size={"icon"}
-                  />{" "}
+                    className="me-3"
+                  />
                   <Button
                     children={<Trash2Icon size={24} />}
                     variant={"secondary"}
