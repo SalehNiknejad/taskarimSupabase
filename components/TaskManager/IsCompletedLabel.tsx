@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { checkStateChangeTask, deleteTask } from "@/app/actions";
+import { checkStateChangeTask } from "@/app/actions";
 import { Label } from "../ui/label";
 import { Square, SquareCheck } from "lucide-react";
 
