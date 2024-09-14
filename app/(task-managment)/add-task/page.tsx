@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { addTasks } from "../actions";
+import { addTasks } from "../../actions";
 import { Text_Area } from "@/components/ui/text-area";
 import { ListPlus } from "lucide-react";
 import { DatePicker } from "zaman";
