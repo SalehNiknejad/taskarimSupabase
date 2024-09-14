@@ -206,12 +206,12 @@ export const checkStateChangeTask = async (
 ) => {
   const supabase = createClient();
 
-  const { error } = await supabase
+  const { error, statusText } = await supabase
     .from("allTask")
     .update({ isCompleted: !isCompleted })
     .eq("id", taskId);
 
-  if (error) {
+  if (!error) {
     encodedRedirect("error", "/", "TaskChangeStateSuccessful");
   } else encodedRedirect("success", "/", "TaskChangeStateFailed");
 };
