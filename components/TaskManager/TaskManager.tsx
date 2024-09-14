@@ -4,6 +4,7 @@ import IsCompletedLabel from "./IsCompletedLabel";
 import { createClient } from "@/utils/supabase/server";
 import { Button } from "../ui/button";
 import { PlusCircleIcon } from "lucide-react";
+import { TaskReadProps } from "./TaskManagerModel";
 
 async function TaskManager() {
   const {
@@ -11,15 +12,6 @@ async function TaskManager() {
   } = await createClient().auth.getUser();
 
   const supabase = createClient();
-
-  type TaskReadProps = {
-    id: number;
-    date: string;
-    title: string;
-    description: string;
-    isCompleted: boolean;
-    autherID: number;
-  };
 
   const { data } = await supabase
     .from("allTask")
@@ -56,7 +48,7 @@ async function TaskManager() {
                   />
                 </div>
                 <div>
-                  <DeleteAndEditButtons taskId={item.id} />
+                  <DeleteAndEditButtons taskinfo={item} />
                 </div>
               </div>
             </div>
