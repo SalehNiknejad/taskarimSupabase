@@ -206,12 +206,35 @@ export const checkStateChangeTask = async (
 ) => {
   const supabase = createClient();
 
-  const { error } = await supabase
+  const { error, statusText } = await supabase
     .from("allTask")
     .update({ isCompleted: !isCompleted })
     .eq("id", taskId);
 
-  if (error) {
+  if (!error) {
     encodedRedirect("error", "/", "TaskChangeStateSuccessful");
   } else encodedRedirect("success", "/", "TaskChangeStateFailed");
+};
+
+export const changeTask = async (formData: FormData) => {
+  const supabase = createClient();
+
+  const title = formData.get("title") as string;
+  const description = formData.get("description") as string;
+  const id = formData.get("id") as string;
+
+  const { error } = await supabase
+    .from("allTask")
+    .update({
+      title,
+      description,
+    })
+    .eq("id", parseInt(id));
+
+  if (!error) {
+    encodedRedirect("success", "/", "TaskUpdated");
+  }
+  if (error) {
+    encodedRedirect("error", "/", "TaskUpdatingFailed");
+  }
 };
