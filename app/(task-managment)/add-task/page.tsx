@@ -5,11 +5,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { addTasks } from "../../actions";
 import { Text_Area } from "@/components/ui/text-area";
-import { ListPlus } from "lucide-react";
+import { Check, CheckCircle2Icon, ListPlus, Users } from "lucide-react";
 import { DatePicker } from "zaman";
+import getColorHexFromName from "@/components/TaskManager/utils/getColorHexFromName";
 
 const AddTask = () => {
   const [date, setDate] = useState("");
+  const [cardColor, setCardColor] = useState("black");
+  const colors = ["black", "blue", "red", "green", "yellow"];
   return (
     <form className="flex-1 flex flex-col min-w-80">
       <div className="flex items-center">
@@ -39,6 +42,17 @@ const AddTask = () => {
           defaultValue={Date.now()}
           inputClass="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
         />
+        <Label className="mt-2">رنگ کارت</Label>
+        <div className="flex justify-center w-full mb-4">
+          {colors.map((color) => (
+            <div
+              className={`${getColorHexFromName(color)} flex justify-center items-center w-10 h-10 m-2 rounded-full border-2 border-gray-400 dark:border-gray-700`}
+              onClick={() => setCardColor(color)}
+            >
+              {cardColor === color && <Check size={30} />}
+            </div>
+          ))}
+        </div>
         <Input
           name="date"
           className="hidden"
@@ -51,6 +65,7 @@ const AddTask = () => {
             }).format(Date.now())
           }
         />
+        <Input name="cardColor" className="hidden" defaultValue={cardColor} />
         <SubmitButton pendingText="در حال افزودن..." formAction={addTasks}>
           افزودن
         </SubmitButton>
