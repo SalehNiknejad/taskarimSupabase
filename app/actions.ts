@@ -169,6 +169,7 @@ export const addTasks = async (formData: FormData) => {
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const date = formData.get("date") as string;
+  const cardColor = formData.get("cardColor") as string;
 
   const { data, error } = await supabase
     .from("allTask")
@@ -178,6 +179,7 @@ export const addTasks = async (formData: FormData) => {
       title,
       description,
       isCompleted: false,
+      cardColor
     })
     .select()
     .single();
