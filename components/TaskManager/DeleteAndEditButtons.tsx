@@ -1,25 +1,21 @@
 "use client";
-import { EditIcon, ListPlus, Trash2Icon } from "lucide-react";
-import React, { useState } from "react";
+import { EditIcon, Trash2Icon } from "lucide-react";
+import React from "react";
 import { Button } from "../ui/button";
-import { addTasks, changeTask, deleteTask } from "@/app/actions";
+import { changeTask, deleteTask } from "@/app/actions";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Text_Area } from "../ui/text-area";
 import { SubmitButton } from "../submit-button";
-import { DatePicker } from "zaman";
 import { TaskReadProps } from "./TaskManagerModel";
-import { useRouter } from "next/navigation";
 
 function DeleteAndEditButtons(task: { taskinfo: TaskReadProps }) {
-  const router = useRouter();
   return (
     <>
       <DropdownMenu>

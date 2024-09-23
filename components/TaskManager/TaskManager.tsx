@@ -5,6 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 import { Button } from "../ui/button";
 import { PlusCircleIcon } from "lucide-react";
 import { TaskReadProps } from "./TaskManagerModel";
+import getColorHexFromName from "./utils/getColorHexFromName";
 
 async function TaskManager() {
   const {
@@ -34,7 +35,9 @@ async function TaskManager() {
         </a>
         <div className="flex flex-wrap gap-2">
           {data?.map((item: TaskReadProps) => (
-            <div className="max-sm:w-[90vw] lg:w-80	max-lg:w-72 h-48 border border-1 rounded-lg p-3 flex flex-col justify-between">
+            <div
+              className={`${getColorHexFromName(item.cardColor)} max-sm:w-[90vw] lg:w-80	max-lg:w-72 h-48 border border-1 rounded-lg p-3 flex flex-col justify-between`}
+            >
               <div>
                 <h2 className="font-extrabold text-wrap">{item.title}</h2>
                 <p className="font-normal text-sm">{item.description}</p>
