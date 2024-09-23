@@ -1,4 +1,3 @@
-import { yellow } from "@mui/material/colors";
 
 const getColorHexFromName = (colorName: string) => {
     const BG_COLOR = {
