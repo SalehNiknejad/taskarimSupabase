@@ -29,7 +29,7 @@ async function TaskManager() {
             size={"sm"}
             className="mb-2"
           >
-            <PlusCircleIcon size={24} className="me-1" />
+            <PlusCircleIcon size={24} className="ml-1" />
             <span> مورد جدید</span>
           </Button>
         </a>
