@@ -1,4 +1,3 @@
-import DeployButton from "@/components/deploy-button";
 import Link from "next/link";
 import Image from "next/image";
 import HeaderAuth from "@/components/header-auth";
@@ -26,7 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
-      lang="en"
+      lang="fa"
       dir="rtl"
       className={vazir.className}
       suppressHydrationWarning
