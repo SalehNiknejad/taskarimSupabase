@@ -1,6 +1,5 @@
 "use client";
 import { EditIcon, Trash2Icon } from "lucide-react";
-import React from "react";
 import { Button } from "../ui/button";
 import { changeTask, deleteTask } from "@/app/actions";
 import {

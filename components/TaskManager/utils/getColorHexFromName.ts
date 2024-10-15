@@ -1,4 +1,3 @@
-
 const getColorHexFromName = (colorName: string) => {
     const BG_COLOR = {
        black: '',

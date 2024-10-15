@@ -1,11 +1,10 @@
-import React from "react";
 import DeleteAndEditButtons from "./DeleteAndEditButtons";
 import IsCompletedLabel from "./IsCompletedLabel";
+import getColorHexFromName from "./utils/getColorHexFromName";
 import { createClient } from "@/utils/supabase/server";
 import { Button } from "../ui/button";
 import { PlusCircleIcon } from "lucide-react";
 import { TaskReadProps } from "./TaskManagerModel";
-import getColorHexFromName from "./utils/getColorHexFromName";
 
 async function TaskManager() {
   const {
