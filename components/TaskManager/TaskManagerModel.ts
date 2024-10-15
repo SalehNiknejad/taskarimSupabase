@@ -6,4 +6,5 @@ export type TaskReadProps = {
   isCompleted: boolean;
   autherID: number;
   cardColor: string;
+  priority: number;
 };
