@@ -16,7 +16,7 @@ function PriorityFlags({ priority }: { priority: number }) {
   );
 }
 
-const colorSelector = (priority: number) => {
+export const colorSelector = (priority: number) => {
   const BG_COLOR = {
     0: "",
     1: "green",
