@@ -9,11 +9,15 @@ import { addTasks } from "../../actions";
 import { Text_Area } from "@/components/ui/text-area";
 import { Check, ListPlus } from "lucide-react";
 import { DatePicker } from "zaman";
+import { Slider } from "@/components/ui/slider";
+import PriorityFlags from "@/components/TaskManager/PriorityFlags";
 
 const AddTask = () => {
   const [date, setDate] = useState("");
   const [cardColor, setCardColor] = useState("black");
+  const [priority, setPriority] = useState([0]);
   const colors = ["black", "blue", "red", "green", "yellow"];
+
   return (
     <form className="flex-1 flex flex-col min-w-80">
       <div className="flex items-center">
@@ -54,6 +58,21 @@ const AddTask = () => {
             </div>
           ))}
         </div>
+        <div className="flex justify-between">
+          <Label>اولویت</Label>
+          <div className="flex">
+            <PriorityFlags priority={priority[0]} />
+          </div>
+        </div>
+        <Slider
+          dir="rtl"
+          value={priority}
+          max={3}
+          min={0}
+          step={1}
+          onValueChange={(v) => setPriority(v)}
+          className="mt-3 mb-4 "
+        />
         <Input
           name="date"
           className="hidden"
@@ -67,6 +86,7 @@ const AddTask = () => {
           }
         />
         <Input name="cardColor" className="hidden" defaultValue={cardColor} />
+        <Input name="priority" className="hidden" defaultValue={priority[0]} />
         <SubmitButton pendingText="در حال افزودن..." formAction={addTasks}>
           افزودن
         </SubmitButton>

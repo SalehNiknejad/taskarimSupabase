@@ -1,6 +1,7 @@
 import DeleteAndEditButtons from "./DeleteAndEditButtons";
 import IsCompletedLabel from "./IsCompletedLabel";
 import getColorHexFromName from "./utils/getColorHexFromName";
+import PriorityFlags from "./PriorityFlags";
 import { createClient } from "@/utils/supabase/server";
 import { Button } from "../ui/button";
 import { PlusCircleIcon } from "lucide-react";
@@ -35,14 +36,17 @@ async function TaskManager() {
         <div className="flex flex-wrap gap-2">
           {data?.map((item: TaskReadProps) => (
             <div
-              className={`${getColorHexFromName(item.cardColor)} max-sm:w-[90vw] lg:w-80	max-lg:w-72 h-48 border border-1 rounded-lg p-3 flex flex-col justify-between`}
+              className={`${getColorHexFromName(item.cardColor)} max-sm:w-[90vw] lg:w-80	max-lg:w-72 h-auto border border-1 rounded-lg p-3 flex flex-col justify-between`}
             >
               <div>
-                <h2 className="font-extrabold text-wrap">{item.title}</h2>
+                <h2 className="font-extrabold ">{item.title}</h2>
                 <p className="font-normal text-sm">{item.description}</p>
               </div>
-              <div className="flex justify-between items-end">
+              <div className="flex justify-between items-end mt-6">
                 <div>
+                  <div className="flex mb-0.5">
+                    <PriorityFlags priority={item.priority} />
+                  </div>
                   <p className="font-light text-sm mb-1">{item.date}</p>
                   <IsCompletedLabel
                     taskId={item.id}
