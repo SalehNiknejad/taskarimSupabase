@@ -7,4 +7,5 @@ export type TaskReadProps = {
   autherID: number;
   cardColor: string;
   priority: number;
+  createDate: string
 };
